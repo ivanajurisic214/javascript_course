@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>12 exercises</title>
+</head>
+<body>
+  <button class="js-button" onclick="
+    updateButton();
+    ">Start</button>
+
+    <button class="js-button2" onclick="
+      displayMessage();
+    ">Add to cart</button>
+     <p class="js-message"></p>
+
+  <script>
+    /*const add = function() {
+      console.log(2 + 3);
+    };
+    add();
+    add();
+
+    function runTwice(fun) {
+      fun();
+      fun();
+    }
+    runTwice(function() {
+        console.log('12b');
+      });
+    runTwice(add);*/
+
+    function updateButton() {
+      const button = document.querySelector('.js-button');
+      button.innerHTML = 'Loading...';
+      setTimeout(function() {
+        button.innerHTML = 'Finished!';
+      }, 1000);
+
+    };
+
+    let timeoutId;
+
+
+    function displayMessage() {
+        const messageElement = document.querySelector('.js-message');
+        messageElement.innerHTML = 'Added';
+
+       
+        clearTimeout(timeoutId);
+
+        timeoutId = setTimeout(function() {
+          messageElement.innerHTML = '';
+        }, 2000);
+      }
+
+      const multiply = (num1, num2) => num1 * num2;
+      console.log(multiply(2, 3));
+
+      function countPositive (nums) {
+        let positiveNumbers = 0;
+        nums.forEach((num) => {
+          if(num > 0) {
+            positiveNumbers++;
+          }
+        });
+        return positiveNumbers;
+      }
+      console.log(countPositive([1, -3, 5]));
+
+      function addNum(array, num) {
+        return array.map((value) => value + num);
+      }
+      console.log(addNum([1, 2, 3], 2));
+
+
+      function removeEgg(array) {
+        return array.filter((food) => food !== 'egg');
+      }
+      console.log(removeEgg(['egg', 'apple', 'egg', 'egg', 'ham']));
+
+      function removeEgg2(foods) {
+        let eggsRemoved = 0;
+
+        return foods.filter((food) => {
+    
+          if (food === 'egg' && eggsRemoved < 2) {
+            eggsRemoved++;
+            return false;
+          }
+
+          return true;
+        });
+      }
+
+      console.log(removeEgg2(['egg', 'apple', 'egg', 'egg', 'ham']));
+    </script>
+  </script>
+</body>
+</html>
